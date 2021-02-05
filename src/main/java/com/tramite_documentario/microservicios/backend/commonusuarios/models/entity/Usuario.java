@@ -17,6 +17,13 @@ public class Usuario {
     private String password;
     private Boolean enabled;
 
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
+
+    @Column(name = "dni_ruc")
+    private String dniRuc;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             joinColumns = @JoinColumn(name = "id_usuario"),
@@ -24,6 +31,8 @@ public class Usuario {
             uniqueConstraints = {@UniqueConstraint(columnNames = {"id_usuario", "id_rol"})}
             )
     private List<Rol> roles;
+    
+    
 
     public List<Rol> getRoles() {
         return roles;
@@ -63,5 +72,13 @@ public class Usuario {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
 }
