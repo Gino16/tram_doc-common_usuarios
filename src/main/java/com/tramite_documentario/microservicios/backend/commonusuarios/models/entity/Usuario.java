@@ -54,6 +54,14 @@ public class Usuario {
         return username;
     }
 
+    public String getDniRuc() {
+        return dniRuc;
+    }
+
+    public void setDniRuc(String dniRuc) {
+        this.dniRuc = dniRuc;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
